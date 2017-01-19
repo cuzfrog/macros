@@ -22,6 +22,6 @@ lazy val sub = (project in file("./macros"))
     name := "macros-sub",
     version := "0.0.1",
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-compiler" % scalaVersion.value
+      "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided"
     )
   ).disablePlugins(RevolverPlugin)
