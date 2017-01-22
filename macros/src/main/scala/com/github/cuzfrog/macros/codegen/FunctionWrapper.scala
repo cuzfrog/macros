@@ -9,7 +9,7 @@ object FunctionWrapper {
 }
 
 private object FunctionMacroImpl{
-  def apply_impl[P: c.WeakTypeTag, R: c.WeakTypeTag](c: blackbox.Context)(fn: c.Expr[P => R]): c.Tree = {
+  def apply_impl[P, R](c: blackbox.Context)(fn: c.Expr[P => R]): c.Tree = {
     import c.universe._
     val tree=q"$fn"
     println(show(tree))
@@ -18,11 +18,10 @@ private object FunctionMacroImpl{
   }
 }
 
-/*
 
-class FunctionWrapper[P, R](val fn: P => R, description: String)
+/*
+class FunctionWrapper[P, R](val fn: P => R)
   extends Function1[P, R] {
   def apply(p: P) = fn(p)
-  override def toString = description
-}
-*/
+}*/
+

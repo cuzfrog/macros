@@ -1,5 +1,8 @@
 package com.github.cuzfrog.macros.codegen
 
+import java.io.{ByteArrayInputStream, ByteArrayOutputStream, ObjectInputStream, ObjectOutputStream}
+import java.nio.ByteBuffer
+
 import thirdparty.{AnotherLogic, Person}
 
 
@@ -8,24 +11,24 @@ import thirdparty.{AnotherLogic, Person}
   */
 object FunctionReifyTest extends App {
 
-  val func1 = FunctionWrapper { (s: String) =>
+
+  val func1 = (s: String) =>
     s match {
       case "1" => "one"
       case other => other + "(other)"
     }
-  }
+
   println(func1("sasome"))
 
-
-//
-//  val func2 = SourceCode {
-//    (p: Person) =>
-//      p match {
-//        case Person(age) => age
-//        case other => 0
-//      }
-//  }
-//  println(func2)
+  //
+  //  val func2 = SourceCode {
+  //    (p: Person) =>
+  //      p match {
+  //        case Person(age) => age
+  //        case other => 0
+  //      }
+  //  }
+  //  println(func2)
 }
 
 

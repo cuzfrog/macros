@@ -26,12 +26,11 @@ lazy val sub = (project in file("./macros"))
     )
   ).disablePlugins(RevolverPlugin)
 
-lazy val isolated = (project in file("./logics"))
+lazy val remote = (project in file("./remote"))
   .settings(commonSettings)
   .settings(
-    name := "macros-isolated",
+    name := "macros-remote",
     version := "0.0.1",
-    description := "Scope within which implementation resides. These definitions cannot be seen by main project.",
     libraryDependencies ++= Seq(
     )
   ).disablePlugins(RevolverPlugin)
