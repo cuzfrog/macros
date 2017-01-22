@@ -1,6 +1,5 @@
-package com.github.cuzfrog
+package com.github.cuzfrog.macros.implicittest
 
-import com.github.cuzfrog.macros.`implicit`.Showable
 
 /**
   * Created by cuz on 1/19/17.

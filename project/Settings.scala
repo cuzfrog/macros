@@ -13,7 +13,7 @@ object Settings {
       "spray repo" at "http://repo.spray.io"
     ),
     organization := "com.github.cuzfrog",
-    scalaVersion := "2.12.1",
+    scalaVersion := "2.11.8",
     scalacOptions ++= Seq(
       "-Xlint",
       "-unchecked",

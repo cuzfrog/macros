@@ -1,4 +1,4 @@
-package com.github.cuzfrog.macros.`implicit`
+package com.github.cuzfrog.macros.implicittest
 
 import scala.language.experimental.macros
 import scala.reflect.macros.blackbox
@@ -8,7 +8,7 @@ import scala.reflect.macros.blackbox
   */
 trait Showable[T] {def show(x: T): String}
 
-object Showable {
+private object Showable {
   implicit def materializeShowable[T]: Showable[T] = macro provideInstance[T]
 
   def provideInstance[T: c.WeakTypeTag](c: blackbox.Context): c.universe.Tree = {
