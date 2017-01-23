@@ -11,7 +11,6 @@ lazy val main = (project in file("."))
     name := "macros-main",
     version := "0.0.1",
     libraryDependencies ++= Seq(
-      "com.lihaoyi" %% "sourcecode" % "0.1.2"
     ),
     reColors := Seq("magenta")
   ).dependsOn(sub % "compile->compile;test->test")
@@ -32,5 +31,6 @@ lazy val remote = (project in file("./remote"))
     name := "macros-remote",
     version := "0.0.1",
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-compiler" % scalaVersion.value
     )
   ).disablePlugins(RevolverPlugin)
