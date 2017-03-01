@@ -11,8 +11,8 @@ lazy val main = (project in file("."))
     name := "macros-main",
     version := "0.0.1",
     libraryDependencies ++= Seq(
-    ),
-    reColors := Seq("magenta")
+    )
+    //reColors := Seq("magenta")
   ).dependsOn(sub % "compile->compile;test->test")
 
 lazy val sub = (project in file("./macros"))
@@ -23,7 +23,7 @@ lazy val sub = (project in file("./macros"))
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided"
     )
-  ).disablePlugins(RevolverPlugin)
+  )
 
 lazy val remote = (project in file("./remote"))
   .settings(commonSettings)
@@ -33,4 +33,4 @@ lazy val remote = (project in file("./remote"))
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-compiler" % scalaVersion.value
     )
-  ).disablePlugins(RevolverPlugin)
+  )
