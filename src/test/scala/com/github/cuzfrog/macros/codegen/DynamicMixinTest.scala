@@ -3,7 +3,7 @@ package com.github.cuzfrog.macros.codegen
 /**
   * Created by cuz on 3/1/17.
   */
-object DynamicMixinTest extends App {
+object DynamicMixinTest {
 
 
   val instance = new TextInput("ID", "NAME")
@@ -12,9 +12,15 @@ object DynamicMixinTest extends App {
 
   import Dynamix._
 
-  val dynamixed = instance._with[Control]()
+  val mt=MixinTool.materialize[TextInput,Control]
+
+  val dynamixed = mt.dynamix(instance)
 
   class A extends TextInput("","asdfa") with Control
 
   new A
+
+  def main(args:Array[String]):Unit={
+    //println(dynamixed.`value`)
+  }
 }

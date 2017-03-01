@@ -18,7 +18,7 @@ object Settings {
       "-Xlint",
       "-unchecked",
       "-deprecation",
-      "-feature"),
+      "-feature","-Yshow-trees-stringified"),
     libraryDependencies ++= Seq(
     ),
     logBuffered in Test := false,

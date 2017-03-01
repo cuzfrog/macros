@@ -9,7 +9,7 @@ trait Field{
 }
 
 trait Control extends Field{
-  override def value: String = "I have a value."
+  override def `value`: String = "I have a value."
 }
 
 class TextInput(val id:String,val name:String) extends Field
