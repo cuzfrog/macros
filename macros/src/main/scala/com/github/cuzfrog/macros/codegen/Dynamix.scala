@@ -34,11 +34,11 @@ private object MacroImpl {
 
     val params = tpeC.member(termNames.CONSTRUCTOR).asMethod.paramLists.head
 
-//    val constrParamsDef = params.map { p =>
-//      val n = p.asTerm.name.decodedName.toTermName
-//      q"override val $n : ${p.info}"
-//    }
-//    val extendsParamsDef = params.map(p => q"$p")
+    val constrParamsDef = params.map { p =>
+      val n = p.asTerm.name.decodedName.toTermName
+      q"override val $n : ${p.info}"
+    }
+    val extendsParamsDef = params.map(p => q"$p")
 
     val constrBody: List[c.universe.Tree] = {
       params.map { param =>
@@ -57,15 +57,17 @@ private object MacroImpl {
 //         }
 //       """
 
+    val classDef =q"""
+                     class $freshName (..$constrParamsDef)
+                             extends $tpeC (..$extendsParamsDef) with $tpeT
+                   """
     val tree = List(
       q"""
-
        new $MixinToolSym[$tpeC,$tpeT]{
            def dynamix(in: $tpeC): $tpeC with $tpeT = {
-              new $tpeC(..$constrBody) with $tpeT
+              new $tpeC (..$constrBody) with $tpeT
            }
        }
-
      """)
 
     val tree2 = q"new $tpeC(..$constrBody) with $tpeT"
