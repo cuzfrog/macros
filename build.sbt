@@ -21,7 +21,8 @@ lazy val sub = (project in file("./macros"))
     name := "macros-sub",
     version := "0.0.1",
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided"
+      "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
+      "org.scalameta" %% "scalameta" % "1.6.0" % Provided
     )
   )
 
